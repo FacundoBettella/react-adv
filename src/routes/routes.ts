@@ -2,7 +2,6 @@ import { LazyExoticComponent, lazy } from "react";
 
 import Shopping from "../02-component-patterns/pages/Shopping";
 
-const lazyHome = lazy(() =>  import(/*  webpackChunkName: "LazyHome" */"../02-component-patterns/pages/Home"));
 const lazyAbout = lazy(() => import(/*  webpackChunkName: "LazyAbout" */"../02-component-patterns/pages/About"));
 const lazyUsers = lazy(() => import(/*  webpackChunkName: "LazyUsers" */"../02-component-patterns/pages/Users"));
 
@@ -17,12 +16,6 @@ interface Route {
 }
 
 export const routes: Route[] = [
-  {
-    to: "/home",
-    path: "home",
-    Component: lazyHome,
-    name: "Home",
-  },
   {
     to: "/about",
     path: "about",
