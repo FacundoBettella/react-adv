@@ -1,8 +1,9 @@
-Se trata de un patron que permite extender estilos (clases) desde un componente padre a sus hijos.
+# Extensible styles pattern
 
-Con el podemos heredar estilos a componentes pre-fabricados / personalizados.
-*Si bien son componentes React, ocurre que pierden las propiedades className y style*
+It is a patter that allow us to extend the styles classes beetwen a wrapper component to his children.
 
-Posibilidades:
-    Pasar className a cualquier componente pre-fabricado.
-    Pasar objeto style a cualquier componente pre-fabricado.
+*Custom react components lose the props: className and style object*
+
+We can:
+    Pass the className to a pre-fabricated component.
+    Pass the style Object to a pre-fabricated component.

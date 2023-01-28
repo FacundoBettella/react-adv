@@ -1,15 +1,22 @@
-import { createContext } from "react";
+import { CSSProperties, ReactElement, createContext } from "react";
 
-import { IProductCardContext, IProductCardProps } from "../interfaces/interfaces";
-// import { ProductButtons, ProductImage, ProductTitle } from "./";
+import { IProductCardContext, Product } from "../interfaces/interfaces";
 
 import useProducts from "../hooks/useProducts";
 
 import styles from "../styles/styles.module.css";
+// import { ProductButtons, ProductImage, ProductTitle } from "./";
 
 export const ProductCardContext = createContext({} as IProductCardContext);
 
-export const ProductCard = ({ product, children }: IProductCardProps) => {    
+export interface IProps {
+    product: Product;
+    children?: ReactElement | ReactElement[];
+    className?: string;
+    style?: CSSProperties
+}
+
+export const ProductCard = ({ product, children, className, style }: IProps) => {
     const { counter, increaseBy } = useProducts();
 
     return (
@@ -19,16 +26,19 @@ export const ProductCard = ({ product, children }: IProductCardProps) => {
                 counter,
                 increaseBy
             }}>
-            <div className={styles.productCard}>
+            <div 
+                className={`${styles.productCard} ${className}`} 
+                style={style}
+            >
                 {children}
             </div>
         </ProductCardContext.Provider>
     )
 };
 
-/* 
-    Se puede asignar componentes a otro componente de este modo 
-    cuando los componentes a añadir se encuentran en el mismo archivo. 
+/*
+    Se puede asignar componentes a otro componente de este modo
+    cuando los componentes a añadir se encuentran en el mismo archivo.
 */
 
 // ProductCard.Title = ProductTitle;
