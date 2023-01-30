@@ -13,11 +13,13 @@ export interface IProps {
     product: Product;
     children?: ReactElement | ReactElement[];
     className?: string;
-    style?: CSSProperties
+    style?: CSSProperties;
+    onChange?: () => void;
 }
 
-export const ProductCard = ({ product, children, className, style }: IProps) => {
-    const { counter, increaseBy } = useProducts();
+export const ProductCard = ({ product, children, className, style, onChange }: IProps) => {
+
+    const { counter, increaseBy } = useProducts( onChange );
 
     return (
         <ProductCardContext.Provider
