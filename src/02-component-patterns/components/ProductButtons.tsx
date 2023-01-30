@@ -11,8 +11,9 @@ export interface IButtonProps {
 }
 
 export const ProductButtons = ({ className, style }: IButtonProps) => {
-    const { counter, increaseBy }: ProductCardButtons = useContext(ProductCardContext);
 
+    const { counter, increaseBy }: ProductCardButtons = useContext(ProductCardContext);
+    
     return (
         <div className={`${styles.buttonsContainer} ${className}`} style={style}>
             <button className={styles.buttonMinus} onClick={() => increaseBy(-1)}> - </button>
