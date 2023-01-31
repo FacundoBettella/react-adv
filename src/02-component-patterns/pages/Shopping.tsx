@@ -24,7 +24,7 @@ const Shopping = () => {
               key={index}
               product={product}
               className='bg-dark'
-              style={{ backgroundColor: "#70D1F8" }}
+              style={{ backgroundColor: "#6bb6d3" }}
               onChange={onProductCountChange}
               value={shoppingCart[product.id]?.count || 0}
             >
