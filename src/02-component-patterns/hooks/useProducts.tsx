@@ -3,9 +3,10 @@ import { Product, onChangeProductArgs, InitialValues } from '../interfaces/inter
 
 interface IProps {
     product: Product;
-    onChange?: (args: onChangeProductArgs) => void;
     value?: number;
     initialValues?: InitialValues;
+
+    onChange?: (args: onChangeProductArgs) => void;
 }
 
 const useProducts = ({ onChange, product, value = 0, initialValues }: IProps) => {
@@ -13,13 +14,13 @@ const useProducts = ({ onChange, product, value = 0, initialValues }: IProps) =>
     const [counter, setCounter] = useState<number>(initialValues?.count || value);
     const isMounted = useRef(false);
 
-    const maxCount = initialValues?.maxCount || 0;
-
     const increaseBy = (value: number) => {
-        const newValue = Math.max(counter + value, 0);
+        let newValue = Math.max(counter + value, 0);
 
-        if (newValue > maxCount) return;
-
+        if (initialValues?.maxCount) {
+            newValue = Math.min(newValue, initialValues.maxCount)
+        }
+        
         setCounter(newValue);
         onChange && onChange({ count: newValue, product });
     }
@@ -33,7 +34,7 @@ const useProducts = ({ onChange, product, value = 0, initialValues }: IProps) =>
         isMounted.current = true;
     }, [])
 
-    return { counter, increaseBy }
+    return { counter, maxCount: initialValues?.maxCount, increaseBy }
 }
 
 export default useProducts

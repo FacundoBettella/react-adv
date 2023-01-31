@@ -4,8 +4,9 @@ import { IImageProps } from "../components/ProductImage";
 import { ITitleProps } from "../components/ProductTitle";
 
 export interface IProductCardContext {
-  product: Product;
   counter: number;
+  maxCount?: number;
+  product: Product;
   increaseBy: (value: number) => void;
 }
 
@@ -17,6 +18,7 @@ export interface Product {
 
 export interface ProductCardButtons {
   counter: number;
+  maxCount?: number;
   increaseBy: (value: number) => void;
 }
 
@@ -39,4 +41,14 @@ export interface onChangeProductArgs {
 export interface InitialValues {
   count?: number;
   maxCount?: number;
+}
+
+export interface IProductCardHandlers {
+  count: number;
+  isMaxCountReached: boolean;
+  maxCount?: number;
+  product: Product;
+
+  increaseBy: (value: number) => void;
+  reset: () => void;
 }

@@ -19,16 +19,16 @@ const Shopping = () => {
             maxCount: 10,
           }}
         >
-          <ProductCard.Image
-            className="custom-image"
-          />
-          <ProductCard.Title
-            className='text-white text-bold'
-          />
-          <ProductCard.Buttons
-            className="custom-button"
-            style={{ display: "flex", justifyContent: "flex-end" }}
-          />
+          {
+            () => (
+              <>
+                <ProductCard.Image className="custom-image" />
+                <ProductCard.Title className='text-white text-bold' />
+                <ProductCard.Buttons className="custom-button" style={{ display: "flex", justifyContent: "flex-end" }} />
+              </>
+
+            )
+          }
         </ProductCard>
       </div>
     </>

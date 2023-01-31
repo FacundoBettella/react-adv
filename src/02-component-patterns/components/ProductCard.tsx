@@ -1,32 +1,30 @@
-import { CSSProperties, ReactElement, createContext } from "react";
-
-import { IProductCardContext, InitialValues, Product, onChangeProductArgs } from "../interfaces/interfaces";
-
+import { CSSProperties, createContext } from "react";
+import { IProductCardContext, IProductCardHandlers, InitialValues, Product, onChangeProductArgs } from "../interfaces/interfaces";
 import useProducts from "../hooks/useProducts";
-
 import styles from "../styles/styles.module.css";
-// import { ProductButtons, ProductImage, ProductTitle } from "./";
 
 export const ProductCardContext = createContext({} as IProductCardContext);
 
 export interface IProps {
     product: Product;
-    children?: ReactElement | ReactElement[];
-    className?: string;
-    style?: CSSProperties;
-    onChange?: (args: onChangeProductArgs) => void;
     value?: number;
     initialValues?: InitialValues;
+    className?: string;
+    style?: CSSProperties;
+
+    onChange?: (args: onChangeProductArgs) => void;
+    children: (args: IProductCardHandlers) => JSX.Element;
 }
 
 export const ProductCard = ({ product, children, className, style, onChange, value, initialValues }: IProps) => {
 
-    const { counter, increaseBy } = useProducts({ onChange, product, value, initialValues });
+    const { counter, increaseBy, maxCount } = useProducts({ onChange, product, value, initialValues });
 
     return (
         <ProductCardContext.Provider
             value={{
                 counter,
+                maxCount,
                 increaseBy,
                 product,
             }}>
@@ -34,7 +32,12 @@ export const ProductCard = ({ product, children, className, style, onChange, val
                 className={`${styles.productCard} ${className}`}
                 style={style}
             >
-                {children}
+                {children({
+                    // count: counter,
+                    // isMaxCountReached: !!maxCount && maxCount === counter,
+                    // increaseBy: increaseBy,
+                    // product: product
+                })}
             </div>
         </ProductCardContext.Provider>
     )
