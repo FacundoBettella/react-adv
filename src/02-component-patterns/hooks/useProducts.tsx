@@ -20,9 +20,13 @@ const useProducts = ({ onChange, product, value = 0, initialValues }: IProps) =>
         if (initialValues?.maxCount) {
             newValue = Math.min(newValue, initialValues.maxCount)
         }
-        
+
         setCounter(newValue);
         onChange && onChange({ count: newValue, product });
+    }
+
+    const reset = () => {
+        setCounter(initialValues?.count || value)
     }
 
     useEffect(() => {
@@ -34,7 +38,14 @@ const useProducts = ({ onChange, product, value = 0, initialValues }: IProps) =>
         isMounted.current = true;
     }, [])
 
-    return { counter, maxCount: initialValues?.maxCount, increaseBy }
+    return {
+        counter,
+        isMaxCountReached: !!initialValues?.count && initialValues.maxCount === counter,
+        maxCount: initialValues?.maxCount,
+        
+        increaseBy,
+        reset
+    }
 }
 
 export default useProducts

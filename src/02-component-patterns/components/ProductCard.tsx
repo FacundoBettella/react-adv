@@ -18,7 +18,7 @@ export interface IProps {
 
 export const ProductCard = ({ product, children, className, style, onChange, value, initialValues }: IProps) => {
 
-    const { counter, increaseBy, maxCount } = useProducts({ onChange, product, value, initialValues });
+    const { counter, isMaxCountReached, maxCount, increaseBy, reset } = useProducts({ onChange, product, value, initialValues });
 
     return (
         <ProductCardContext.Provider
@@ -32,12 +32,17 @@ export const ProductCard = ({ product, children, className, style, onChange, val
                 className={`${styles.productCard} ${className}`}
                 style={style}
             >
-                {children({
-                    // count: counter,
-                    // isMaxCountReached: !!maxCount && maxCount === counter,
-                    // increaseBy: increaseBy,
-                    // product: product
-                })}
+                {
+                    children({
+                        count: counter,
+                        isMaxCountReached,
+                        maxCount: maxCount,
+                        product,
+
+                        increaseBy: increaseBy,
+                        reset: reset,
+                    })
+                }
             </div>
         </ProductCardContext.Provider>
     )
