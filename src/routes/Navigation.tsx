@@ -32,7 +32,7 @@ export const Navigation = () => {
                   <Route key={path} path={path} element={<Component />} />
                 ))
               }
-              <Route path="/*" element={<Navigate to="/shopping" replace />} />
+              <Route path="/*" element={<Navigate to="/home" replace />} />
             </Routes>
           </div>
         </div>
