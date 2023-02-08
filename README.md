@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+# REACT PLAYGROUND PROJECT 
+
+## Content (The content in question is in its own branch):
+```
+    component-extend-styles
+    component-state-initializer
+    compound-component-pattern
+    control-props-pattern
+    control-props-pattern-alternative
+    pre-npm
+    formik
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
