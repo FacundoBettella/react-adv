@@ -8,13 +8,13 @@ input, select {
     margin-top: 5px;
     outline: none;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 button {
     margin-top: 20px;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 4px;
     transition: box-shadow 200ms ease,transform 200ms ease;
 }
 
@@ -28,5 +28,5 @@ span, .error-message {
 }
 
 .has-error {
-    border: 1.5px solid red;
+    border: 2px solid red;
 }
