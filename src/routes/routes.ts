@@ -1,10 +1,11 @@
 import { LazyExoticComponent, lazy, FC } from "react";
 
-import { Register } from "../03-forms/pages/Register";
-import { FormikBasic } from "../03-forms/pages/FormixBasic";
+import { FormikBasic } from "../03-forms/pages/FormikBasic";
+import { FormikYup } from "../03-forms/pages/FormikYup";
+import { FormikComponents } from "../03-forms/pages/FormikComponents";
 
-const lazyHome = lazy(
-  () => import(/*  webpackChunkName: "LazyUsers" */ "../03-forms/pages/Home")
+const lazyRegister = lazy(
+  () => import(/*  webpackChunkName: "LazyUsers" */ "../03-forms/pages/Register")
 );
 
 type JSXComponent = () => JSX.Element;
@@ -18,15 +19,9 @@ interface Route {
 
 export const routes: Route[] = [
   {
-    to: "/home",
-    path: "home",
-    Component: lazyHome,
-    name: "Home",
-  },
-  {
     to: "/register",
     path: "register",
-    Component: Register,
+    Component: lazyRegister,
     name: "Register",
   },
   {
@@ -34,5 +29,17 @@ export const routes: Route[] = [
     path: "formik-basic",
     Component: FormikBasic,
     name: "Formik Basic",
+  },
+  {
+    to: "/formik-yup",
+    path: "formik-yup",
+    Component: FormikYup,
+    name: "Formik Yup",
+  },
+  {
+    to: "/formik-components",
+    path: "formik-components",
+    Component: FormikComponents,
+    name: "Formik Components",
   },
 ];

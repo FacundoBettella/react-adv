@@ -9,6 +9,7 @@ interface FormValues {
 }
 
 export const FormikBasic: FC = () => {
+
   const validate = ({ firstName, lastName, email }: FormValues) => {
     const errors: FormikErrors<FormValues> = {};
 
@@ -33,19 +34,20 @@ export const FormikBasic: FC = () => {
     return errors;
   };
 
-  const { values, handleChange, handleSubmit, errors, touched, handleBlur } = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-    },
+  const { values, handleChange, handleSubmit, errors, touched, handleBlur } =
+    useFormik({
+      initialValues: {
+        firstName: "",
+        lastName: "",
+        email: "",
+      },
 
-    onSubmit: (values) => {
-      console.log(values);
-    },
+      onSubmit: (values) => {
+        console.log(values);
+      },
 
-    validate: validate,
-  });
+      validate: validate,
+    });
 
   return (
     <div>

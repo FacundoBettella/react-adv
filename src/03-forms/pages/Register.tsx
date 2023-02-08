@@ -18,7 +18,7 @@ const initialState: IForm = {
   password2: "",
 };
 
-export const Register: FC = () => {
+const Register: FC = () => {
   const {
     name,
     email,
@@ -86,3 +86,4 @@ export const Register: FC = () => {
     </div>
   );
 };
+export  default Register;
