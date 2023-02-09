@@ -4,6 +4,9 @@ import { FormikBasic } from "../03-forms/pages/FormikBasic";
 import { FormikYup } from "../03-forms/pages/FormikYup";
 import { FormikComponents } from "../03-forms/pages/FormikComponents";
 import { FormikAbstraction } from "../03-forms/pages/FormikAbstraction";
+import RegisterFormik from "../03-forms/pages/RegisterFormik";
+import DynamicForm from "../03-forms/pages/DynamicForm";
+
 
 const lazyRegister = lazy(
   () => import(/*  webpackChunkName: "LazyUsers" */ "../03-forms/pages/Register")
@@ -24,6 +27,12 @@ export const routes: Route[] = [
     path: "register",
     Component: lazyRegister,
     name: "Register",
+  },
+  {
+    to: "/register-formik",
+    path: "register-formik",
+    Component: RegisterFormik,
+    name: "Register Formik",
   },
   {
     to: "/formik-basic",
@@ -48,5 +57,11 @@ export const routes: Route[] = [
     path: "formik-abstraction",
     Component: FormikAbstraction,
     name: "Formik Abstraction",
+  },
+  {
+    to: "/dynamic-form",
+    path: "dynamic-form",
+    Component: DynamicForm,
+    name: "Dynamic Form",
   },
 ];

@@ -9,8 +9,9 @@ interface IProps {
 }
 
 export const MySelect: FC<IProps> = ({ label, ...props }) => {
-  const [ field ] = useField(props);
 
+  const [field] = useField(props);
+  
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>

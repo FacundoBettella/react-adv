@@ -1,0 +1,34 @@
+[
+  {
+    "type": "input",
+    "name": "firstName",
+    "placerholder": "Liam",
+    "label": "First Name",
+    "value": ""
+  },
+  {
+    "type": "input",
+    "name": "lastName",
+    "placerholder": "Gallagher",
+    "label": "Last Name",
+    "value": ""
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "placerholder": "liam@oasis.com",
+    "label": "Email",
+    "value": ""
+  },
+  {
+    "type": "select",
+    "name": "favoriteGame",
+    "label": "Favorite Game",
+    "value": "",
+    "options": [
+      { "id": 1, "description": "Super Smash" },
+      { "id": 2, "description": "Dark Souls" },
+      { "id": 3, "description": "League of Legends" }
+    ]
+  }
+]

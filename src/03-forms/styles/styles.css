@@ -20,7 +20,8 @@ button {
 
 button:hover {
     transform: translate(4px, -4px);
-    box-shadow: -8px 8px 0 #10162f;
+    box-shadow: -8px 8px 0 #61dafb;
+    cursor: pointer;
 }
 
 span, .error-message {
