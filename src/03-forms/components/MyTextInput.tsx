@@ -10,9 +10,9 @@ interface IProps {
 }
 
 export const MyTextInput: FC<IProps> = ({ label, ...props }) => {
-  const [field] = useField(props);
+  const [field, /*meta*/] = useField(props);
 
-  //console.log(meta)
+  // console.log(field, meta)
 
   return (
     <>

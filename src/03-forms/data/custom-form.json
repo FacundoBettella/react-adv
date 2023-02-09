@@ -4,21 +4,52 @@
     "name": "firstName",
     "placerholder": "Liam",
     "label": "First Name",
-    "value": ""
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "minLength",
+        "value": 6
+      },
+      {
+        "type": "maxLength",
+        "value": 15
+      }
+    ]
   },
   {
     "type": "input",
     "name": "lastName",
     "placerholder": "Gallagher",
     "label": "Last Name",
-    "value": ""
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "minLength",
+        "value": 6
+      },
+      {
+        "type": "maxLength",
+        "value": 15
+      }
+    ]
   },
   {
     "type": "email",
     "name": "email",
     "placerholder": "liam@oasis.com",
     "label": "Email",
-    "value": ""
+    "value": "",
+    "validations": [
+      {
+        "type": "email"
+      }
+    ]
   },
   {
     "type": "select",
